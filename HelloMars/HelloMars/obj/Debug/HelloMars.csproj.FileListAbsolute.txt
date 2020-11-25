@@ -1,0 +1,7 @@
+C:\Users\Ba2H\source\repos\HelloMars\HelloMars\bin\Debug\HelloMars.exe.config
+C:\Users\Ba2H\source\repos\HelloMars\HelloMars\bin\Debug\HelloMars.exe
+C:\Users\Ba2H\source\repos\HelloMars\HelloMars\bin\Debug\HelloMars.pdb
+C:\Users\Ba2H\source\repos\HelloMars\HelloMars\obj\Debug\HelloMars.csprojAssemblyReference.cache
+C:\Users\Ba2H\source\repos\HelloMars\HelloMars\obj\Debug\HelloMars.csproj.CoreCompileInputs.cache
+C:\Users\Ba2H\source\repos\HelloMars\HelloMars\obj\Debug\HelloMars.exe
+C:\Users\Ba2H\source\repos\HelloMars\HelloMars\obj\Debug\HelloMars.pdb
