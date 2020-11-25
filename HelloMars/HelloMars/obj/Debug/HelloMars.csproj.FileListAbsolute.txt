@@ -5,3 +5,14 @@ C:\Users\Ba2H\source\repos\HelloMars\HelloMars\obj\Debug\HelloMars.csprojAssembl
 C:\Users\Ba2H\source\repos\HelloMars\HelloMars\obj\Debug\HelloMars.csproj.CoreCompileInputs.cache
 C:\Users\Ba2H\source\repos\HelloMars\HelloMars\obj\Debug\HelloMars.exe
 C:\Users\Ba2H\source\repos\HelloMars\HelloMars\obj\Debug\HelloMars.pdb
+D:\ШАГ\0 Repository\SQL\HelloMars\HelloMars\bin\Debug\HelloMars.exe.config
+D:\ШАГ\0 Repository\SQL\HelloMars\HelloMars\bin\Debug\HelloMars.exe
+D:\ШАГ\0 Repository\SQL\HelloMars\HelloMars\bin\Debug\HelloMars.pdb
+D:\ШАГ\0 Repository\SQL\HelloMars\HelloMars\obj\Debug\HelloMars.csprojAssemblyReference.cache
+D:\ШАГ\0 Repository\SQL\HelloMars\HelloMars\obj\Debug\HelloMars.csproj.CoreCompileInputs.cache
+D:\ШАГ\0 Repository\SQL\HelloMars\HelloMars\obj\Debug\HelloMars.exe
+D:\ШАГ\0 Repository\SQL\HelloMars\HelloMars\obj\Debug\HelloMars.pdb
+D:\ШАГ\0 Repository\SQL\HelloMars\HelloMars\bin\Debug\query\tblDepartments.sql
+D:\ШАГ\0 Repository\SQL\HelloMars\HelloMars\bin\Debug\query\tblFaculties.sql
+D:\ШАГ\0 Repository\SQL\HelloMars\HelloMars\bin\Debug\query\tblGroups.sql
+D:\ШАГ\0 Repository\SQL\HelloMars\HelloMars\bin\Debug\query\tblTeachers.sql
