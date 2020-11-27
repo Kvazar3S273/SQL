@@ -27,6 +27,7 @@ namespace Mars2
                 //(9500, "Мережі"),
                 //(500, "Українська філологія")";
 
+         
                 string sqlDep1 = "INSERT INTO Departments(Financing, Name) VALUES(8000, \'Math\')";
                 SqlCommand command1 = new SqlCommand(sqlDep1);
                 command1.Connection = conn;
