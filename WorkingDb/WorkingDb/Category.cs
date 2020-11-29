@@ -14,7 +14,7 @@ namespace WorkingDb
         public string Description { get; set; }
         public override string ToString()
         {
-            return $"{Id}. {Name} - {Image} - '{Description}'";
+            return $"{Id,3}. {Name,-10} {Image,-12}  {Description,-30}";
         }
     }
 }

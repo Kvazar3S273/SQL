@@ -12,10 +12,10 @@ namespace WorkingDb
     {
         static void Main(string[] args)
         {
-            Console.InputEncoding = Encoding.UTF8;
-            Console.OutputEncoding = Encoding.UTF8;
+            Console.InputEncoding = Encoding.Unicode;
+            Console.OutputEncoding = Encoding.Unicode;
             //Console.WriteLine("Hello");
-            string strConnection = "Data Source=blonskyvova.database.windows.net;Initial Catalog=DB_1;User ID=blonsky;Password=Qwerty1*;";
+            string strConnection = "Data Source=blonskyvova.database.windows.net;Initial Catalog=DB_1;Persist Security Info=True;User ID=blonsky;Password=Qwerty1*;";
 
             CategoryService categoryService = 
                 new CategoryService(strConnection);
@@ -33,6 +33,10 @@ namespace WorkingDb
                 action =  int.Parse(Console.ReadLine());
                 switch(action)
                 {
+                    case 0:
+                        {
+                            break;
+                        }
                     case 1:
                         {
                             var list = categoryService.GetAll();
@@ -82,27 +86,7 @@ namespace WorkingDb
             } while (action!=0);
            
                 
-            //try
-            //{
-            //    SqlConnection conn = new SqlConnection(strConnection);
-            //    conn.Open();
-            //    Console.WriteLine("Зяднанян успішно :)");
-            //    string sql=File.ReadAllText("query\\tblCategories.sql");
-            //    SqlCommand command = new SqlCommand(sql);
-            //    command.Connection = conn;
-            //    command.ExecuteNonQuery();
-            //    Console.WriteLine("Запит tblCategories.sql - виконано");
-
-            //    command.CommandText= File.ReadAllText("query\\tblProducts.sql");
-            //    command.ExecuteNonQuery();
-            //    Console.WriteLine("Запит tblProducts.sql - виконано");
-
-            //    conn.Close();
-            //}
-            //catch(Exception ex)
-            //{
-            //    Console.WriteLine("Хюстон у нас проблеми: "+ex.Message);
-            //}
+            
         }
     }
 }

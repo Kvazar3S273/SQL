@@ -60,7 +60,7 @@ namespace WorkingDb
         {
             string query = "DELETE FROM " +
                 "DB_1.dbo.tblCatetories " +
-                $"WHERE Id = {id};";
+                $"WHERE Id = {id};";    
             SqlCommand command = new SqlCommand(query, _conn);
             command.ExecuteNonQuery();
         }
@@ -68,8 +68,8 @@ namespace WorkingDb
         {
 
             string query2 = "  UPDATE DB_1.dbo.tblCatetories " +
-                $"SET Name = '{category.Name}', [Image] = '{category.Image}'," +
-                $" Description = '{category.Description}' " +
+                $"SET Name = N'{category.Name}', [Image] = N'{category.Image}'," +
+                $" Description = N'{category.Description}' " +
                 $"WHERE Id = {id}; ";
             SqlCommand command = new SqlCommand(query2, _conn);
             command.ExecuteNonQuery();
