@@ -64,14 +64,47 @@ namespace WorkingDb
             SqlCommand command = new SqlCommand(query, _conn);
             command.ExecuteNonQuery();
         }
+        
         public void Update(int id, Category category)
         {
+            string query = "  UPDATE DB_1.dbo.tblCatetories " +
+                $"";
+            bool isBegin = true;
+            if (!string.IsNullOrEmpty(category.Name))
+            {
+                isBegin = false;
+                query += $"SET Name = N'{category.Name}'";
+            }
+            if (!string.IsNullOrEmpty(category.Image))
+            {
+                if (isBegin)
+                {
+                    query += "SET ";
+                    isBegin = false;
+                }
+                else
+                {
+                    query += ", ";
+                }
+                query += $"[Image] = N'{category.Image}'";
+            }
 
-            string query2 = "  UPDATE DB_1.dbo.tblCatetories " +
-                $"SET Name = N'{category.Name}', [Image] = N'{category.Image}'," +
-                $" Description = N'{category.Description}' " +
-                $"WHERE Id = {id}; ";
-            SqlCommand command = new SqlCommand(query2, _conn);
+            if (!string.IsNullOrEmpty(category.Description))
+            {
+                if (isBegin)
+                {
+                    query += "SET ";
+                    isBegin = false;
+                }
+                else
+                {
+                    query += ", ";
+                }
+                query += $"Description = N'{category.Description}'";
+            }
+
+            query += $" WHERE Id = {id}; ";
+            SqlCommand command = new SqlCommand(query, _conn);
             command.ExecuteNonQuery();
         }
     }

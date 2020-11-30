@@ -69,8 +69,8 @@ namespace WorkingDb
                     case 4:
                         {
                             Console.WriteLine("Введіть Id для редагування інформації");
-                            int result = 0;
-                            result = int.Parse(Console.ReadLine());
+                            int id = 0;
+                            id = int.Parse(Console.ReadLine());
                             Category category = new Category();
                             Console.Write("Вкажіть назву: ");
                             category.Name = Console.ReadLine();
@@ -78,7 +78,7 @@ namespace WorkingDb
                             category.Image = Console.ReadLine();
                             Console.Write("Вкажіть опис: ");
                             category.Description = Console.ReadLine();
-                            categoryService.Update(result, category);
+                            categoryService.Update(id, category);
                             break;
                         }
                 }
