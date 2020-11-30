@@ -9,6 +9,8 @@ namespace WorkingDb
     public class Products
     {
         public int Id { get; set; }
+        public int CategoryId { get; set; }
+
         public string Name { get; set; }
         public string Image { get; set; }
         public string Price { get; set; }
@@ -16,6 +18,7 @@ namespace WorkingDb
         public override string ToString()
         {
             return $"{Id,3}. {Name,-10} {Image,-12} {Price,-6} {Description,-30}";
+
         }
     }
     public class ProductSearch

@@ -11,6 +11,14 @@ namespace WorkingDb
         {
             Console.InputEncoding = Encoding.Unicode;
             Console.OutputEncoding = Encoding.Unicode;
+           
+
+            string strConnection = "Data Source=blonskyvova.database.windows.net;Initial Catalog=DB_1;Persist Security Info=True;User ID=blonsky;Password=Qwerty1*;";
+
+            CategoryService categoryService = new CategoryService(strConnection);
+            ProductService productsService = new ProductService(strConnection);
+
+
             List<Products> myList = new List<Products>();
             var faker = new Faker<Products>("uk")
             .RuleFor(n => n.Name, (d, n) => d.Commerce.Product());
@@ -20,13 +28,26 @@ namespace WorkingDb
             }
             foreach (var item in myList)
             {
-                Console.WriteLine(item.ToString());
+                Console.WriteLine($"- {item.Name,-7}");
             }
 
-            string strConnection = "Data Source=blonskyvova.database.windows.net;Initial Catalog=DB_1;Persist Security Info=True;User ID=blonsky;Password=Qwerty1*;";
+            for (int i = 0; i < myList.Count; i++)
+            {
+            Products products = new Products();
+                products.CategoryId = 1;
+                products.Name = myList[i].Name;
+                products.Image = "1.jpg";
+                products.Price = "100";
+                products.Description = myList[i].Name + "123";
+                productsService.Add(products);
+            }
 
-            CategoryService categoryService = 
-                new CategoryService(strConnection);
+
+
+
+
+
+
 
             int action = 0;
             do
