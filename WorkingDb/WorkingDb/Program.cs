@@ -1,10 +1,7 @@
-﻿using System;
+﻿using Bogus;
+using System;
 using System.Collections.Generic;
-using System.Data.SqlClient;
-using System.IO;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace WorkingDb
 {
@@ -14,7 +11,18 @@ namespace WorkingDb
         {
             Console.InputEncoding = Encoding.Unicode;
             Console.OutputEncoding = Encoding.Unicode;
-            //Console.WriteLine("Hello");
+            List<Products> myList = new List<Products>();
+            var faker = new Faker<Products>("uk")
+            .RuleFor(n => n.Name, (d, n) => d.Commerce.Product());
+            for (int i = 0; i < 10; i++)
+            {
+                myList.Add(faker.Generate());
+            }
+            foreach (var item in myList)
+            {
+                Console.WriteLine(item.ToString());
+            }
+
             string strConnection = "Data Source=blonskyvova.database.windows.net;Initial Catalog=DB_1;Persist Security Info=True;User ID=blonsky;Password=Qwerty1*;";
 
             CategoryService categoryService = 
@@ -24,12 +32,15 @@ namespace WorkingDb
             do
             {
                 Console.WriteLine();
+                Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("0. Вихід");
                 Console.WriteLine("1. Показати всіх");
                 Console.WriteLine("2. Додати");
                 Console.WriteLine("3. Видалити");
                 Console.WriteLine("4. Редагувати");
+                Console.WriteLine("5. Пошук");
                 Console.Write("->_");
+                Console.ResetColor();
                 action =  int.Parse(Console.ReadLine());
                 switch(action)
                 {
@@ -81,12 +92,23 @@ namespace WorkingDb
                             categoryService.Update(id, category);
                             break;
                         }
+                    case 5:
+                        {
+                            CategorySearch search = new CategorySearch();
+                            Console.Write("Вкажіть назву: ");
+                            search.Name = Console.ReadLine();
+                            Console.Write("Вкажіть опис: ");
+                            search.Description = Console.ReadLine();
+                            var list = categoryService.Search(search);
+                            foreach (var item in list)
+                            {
+                                Console.WriteLine(item);
+                            }
+                            break;
+                        }
                 }
 
             } while (action!=0);
-           
-                
-            
         }
     }
 }

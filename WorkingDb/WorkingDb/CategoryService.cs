@@ -107,5 +107,36 @@ namespace WorkingDb
             SqlCommand command = new SqlCommand(query, _conn);
             command.ExecuteNonQuery();
         }
+        public List<Category> Search(CategorySearch search)
+        {
+            List<Category> list = new List<Category>();
+            string query = "Select Id, Name, Image, Description " +
+                "From tblCatetories";
+            bool isBegin = true;
+            if (!string.IsNullOrEmpty(search.Name))
+            {
+                isBegin = false;
+                query += $" WHERE Name LIKE N'%{search.Name}%'";
+            }
+            if (!string.IsNullOrEmpty(search.Description))
+            {
+                isBegin = false;
+                query += $" WHERE Description LIKE N'%{search.Description}%'";
+            }
+            SqlCommand command = new SqlCommand(query, _conn);
+            using (SqlDataReader reader = command.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    Category category = new Category();
+                    category.Id = int.Parse(reader["Id"].ToString());
+                    category.Name = reader["Name"].ToString();
+                    category.Image = reader["Image"].ToString();
+                    category.Description = reader["Description"].ToString();
+                    list.Add(category);
+                }
+            }
+            return list;
+        }
     }
 }
