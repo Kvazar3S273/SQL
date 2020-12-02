@@ -18,29 +18,37 @@ namespace WorkingDb
             CategoryService categoryService = new CategoryService(strConnection);
             ProductService productsService = new ProductService(strConnection);
 
-
             List<Products> myList = new List<Products>();
-            var faker = new Faker<Products>("uk")
+            var faker=new Faker<Products>()
             .RuleFor(n => n.Name, (d, n) => d.Commerce.Product());
+            
+
             for (int i = 0; i < 10; i++)
             {
                 myList.Add(faker.Generate());
             }
+
+
             foreach (var item in myList)
             {
                 Console.WriteLine($"- {item.Name,-7}");
             }
 
-            for (int i = 0; i < myList.Count; i++)
-            {
-            Products products = new Products();
-                products.CategoryId = 1;
-                products.Name = myList[i].Name;
-                products.Image = "1.jpg";
-                products.Price = "100";
-                products.Description = myList[i].Name + "123";
-                productsService.Add(products);
-            }
+
+
+
+
+
+            //for (int i = 0; i < myList.Count; i++)
+            //{
+            //Products products = new Products();
+            //    products.CategoryId = 1;
+            //    products.Name = myList[i].Name;
+            //    products.Image = "1.jpg";
+            //    products.Price = "100";
+            //    products.Description = myList[i].Name + "123";
+            //    productsService.Add(products);
+            //}
 
 
 
@@ -48,7 +56,7 @@ namespace WorkingDb
 
 
 
-
+/*
             int action = 0;
             do
             {
@@ -129,7 +137,7 @@ namespace WorkingDb
                         }
                 }
 
-            } while (action!=0);
+            } while (action!=0);*/
         }
     }
 }
