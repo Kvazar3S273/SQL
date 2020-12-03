@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,9 +11,38 @@ namespace PersonDB
 {
     class Generate
     {
-        //string strConn;
-        //SqlConnection conn;
+        string strConn;
+        SqlConnection conn;
 
+        public void CreateTables()
+        {
+            strConn = @"Data Source = BA2H - PC\SQL; Initial Catalog = PersonDB; Integrated Security = True";
+            
+            try
+            {
+                conn = new SqlConnection(strConn);
+                conn.Open();
+
+                string cteateTblPerson = File.ReadAllText(@"D:\ШАГ\0 Repository\SQL\PersonDB\PersonDB\query\Person.sql");
+                    
+                SqlCommand commandPerson = new SqlCommand(cteateTblPerson);
+                commandPerson.Connection = conn;
+                commandPerson.ExecuteNonQuery();
+                Console.WriteLine("Query <<Person.sql>> completed!");
+
+                string cteateTblCountry = File.ReadAllText(@"D:\ШАГ\0 Repository\SQL\PersonDB\PersonDB\query\Country.sql");
+                SqlCommand commandCountry = new SqlCommand(cteateTblPerson);
+                commandCountry.Connection = conn;
+                commandCountry.ExecuteNonQuery();
+                Console.WriteLine("Query <<Country.sql>> completed!");
+
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("That\'s no good\n\n" + ex.Message);
+            }
+        }
         public void GeneratePerson()
         {
             Random rnd = new Random();
@@ -47,7 +77,7 @@ namespace PersonDB
 
             foreach (var item in listCountries)
             {
-                Console.WriteLine($"{item.Title,30}  ВВП = {item.VVP,-6} USD");
+                Console.WriteLine($"{item.Title,20}  ВВП = {item.VVP,-6} USD");
             }
         }
         

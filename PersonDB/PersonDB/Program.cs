@@ -15,9 +15,10 @@ namespace PersonDB
             Console.OutputEncoding = Encoding.Unicode;
 
             Generate gen = new Generate();
-            gen.GeneratePerson();
-            Console.WriteLine();
-            gen.GenerateCountry();
+            gen.CreateTables();
+            //gen.GeneratePerson();
+            //Console.WriteLine();
+            //gen.GenerateCountry();
         }
     }
 }
