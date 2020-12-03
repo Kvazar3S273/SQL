@@ -1,3 +1,5 @@
+USE PersonDB
+
 IF NOT EXISTS (SELECT * FROM sys.tables WHERE object_id = OBJECT_ID(N'[dbo].[Person]'))
 EXEC dbo.sp_executesql @statement = N'
 CREATE TABLE [dbo].[Person](

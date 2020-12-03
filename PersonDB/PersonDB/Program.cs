@@ -16,9 +16,8 @@ namespace PersonDB
 
             Generate gen = new Generate();
             gen.CreateTables();
-            //gen.GeneratePerson();
-            //Console.WriteLine();
-            //gen.GenerateCountry();
+            gen.GeneratePerson();
+            gen.GenerateCountry();
         }
     }
 }

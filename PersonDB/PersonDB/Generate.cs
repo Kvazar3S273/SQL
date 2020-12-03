@@ -11,12 +11,12 @@ namespace PersonDB
 {
     class Generate
     {
-        string strConn;
+        string strConn = "Data Source=BA2H-PC\\SQL;Initial Catalog=PersonDB;Integrated Security=True";
         SqlConnection conn;
 
         public void CreateTables()
         {
-            strConn = @"Data Source = BA2H - PC\SQL; Initial Catalog = PersonDB; Integrated Security = True";
+            //strConn = "Data Source=BA2H-PC\\SQL;Initial Catalog=PersonDB;Integrated Security=True";
             
             try
             {
@@ -31,7 +31,7 @@ namespace PersonDB
                 Console.WriteLine("Query <<Person.sql>> completed!");
 
                 string cteateTblCountry = File.ReadAllText(@"D:\ШАГ\0 Repository\SQL\PersonDB\PersonDB\query\Country.sql");
-                SqlCommand commandCountry = new SqlCommand(cteateTblPerson);
+                SqlCommand commandCountry = new SqlCommand(cteateTblCountry);
                 commandCountry.Connection = conn;
                 commandCountry.ExecuteNonQuery();
                 Console.WriteLine("Query <<Country.sql>> completed!");
@@ -45,6 +45,8 @@ namespace PersonDB
         }
         public void GeneratePerson()
         {
+            conn = new SqlConnection(strConn);
+            conn.Open();
             Random rnd = new Random();
             List<Person> listPersons = new List<Person>();
             var person = new Faker<Person>("uk")
@@ -57,15 +59,29 @@ namespace PersonDB
                 listPersons.Add(person.Generate());
             }
 
+            //foreach (var item in listPersons)
+            //{
+            //    Console.WriteLine($"{item.Surname,-12} тел. {item.Phone,-15}  вік - {item.Age,-2}р.");
+            //}
+            
+            string deleteTable = "DELETE FROM Person";
+            SqlCommand commandDel = new SqlCommand(deleteTable, conn);
+            commandDel.ExecuteNonQuery();
+
             foreach (var item in listPersons)
             {
-                Console.WriteLine($"{item.Surname,-12} тел. {item.Phone,-15}  вік - {item.Age,-2}р.");
+                string fill = "INSERT INTO [Person] (Surname, Age, Phone) " +
+                    "VALUES (N'" + item.Surname + "','" + item.Age + "','" + item.Phone + "')";
+                SqlCommand commandFill = new SqlCommand(fill, conn);
+                commandFill.ExecuteNonQuery();
             }
-
+            conn.Close();
         }
         
         public void GenerateCountry()
         {
+            conn = new SqlConnection(strConn);
+            conn.Open();
             List<Country> listCountries = new List<Country>();
             var country = new Faker<Country>("uk")
                 .RuleFor(u => u.Title, f => f.Address.Country())
@@ -75,13 +91,27 @@ namespace PersonDB
                 listCountries.Add(country.Generate());
             }
 
+            //foreach (var item in listCountries)
+            //{
+            //    Console.WriteLine($"{item.Title,20}  ВВП = {item.VVP,-6} USD");
+            //}
+
+            string deleteTable = "DELETE FROM Country";
+            SqlCommand commandDel = new SqlCommand(deleteTable, conn);
+            commandDel.ExecuteNonQuery();
+
             foreach (var item in listCountries)
             {
-                Console.WriteLine($"{item.Title,20}  ВВП = {item.VVP,-6} USD");
+                string fill = "INSERT INTO [Country] (Title, VVP) " +
+                    "VALUES (N'" + item.Title + "','" + item.VVP + "')";
+                SqlCommand commandFill = new SqlCommand(fill, conn);
+                commandFill.ExecuteNonQuery();
             }
-        }
-        
 
-        
+            conn.Close();
+        }
+
+
+
     }
 }
