@@ -59,7 +59,7 @@ namespace WorkingDb
         public void Delete(int id)
         {
             string query = "DELETE FROM " +
-                "DB_1.dbo.tblCatetories " +
+                "WorkingDB.dbo.tblCatetories " +
                 $"WHERE Id = {id};";    
             SqlCommand command = new SqlCommand(query, _conn);
             command.ExecuteNonQuery();
@@ -67,7 +67,7 @@ namespace WorkingDb
         
         public void Update(int id, Category category)
         {
-            string query = "  UPDATE DB_1.dbo.tblCatetories " +
+            string query = "  UPDATE WorkingDB.dbo.tblCatetories " +
                 $"";
             bool isBegin = true;
             if (!string.IsNullOrEmpty(category.Name))

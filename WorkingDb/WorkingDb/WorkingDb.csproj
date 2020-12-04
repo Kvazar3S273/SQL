@@ -48,7 +48,6 @@
   <ItemGroup>
     <Compile Include="Category.cs" />
     <Compile Include="CategoryService.cs" />
-    <Compile Include="FillTables.cs" />
     <Compile Include="Products.cs" />
     <Compile Include="ProductService.cs" />
     <Compile Include="Program.cs" />
