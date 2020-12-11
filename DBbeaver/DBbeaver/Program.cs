@@ -143,24 +143,88 @@ namespace Hospital
                                     }
                             }
                             break;
-
-
+                        }
+                    case 4:
+                        {
+                            Console.WriteLine();
+                            Console.WriteLine("1 - серед відділень");
+                            Console.WriteLine("2 - серед користувачів");
+                            Console.Write("-> ");
+                            int choice = int.Parse(Console.ReadLine());
+                            switch (choice)
+                            {
+                                case 1:
+                                    {
+                                        Console.Write("Введіть Id: ");
+                                        int id = int.Parse(Console.ReadLine());
+                                        Department d = context.Departments.SingleOrDefault(x => x.Id == id);
+                                        Console.Write("Введіть нову назву: ");
+                                        d.Name = Console.ReadLine();
+                                        Console.WriteLine("Успішно змінено!");
+                                        context.SaveChanges();
+                                        break;
+                                    }
+                                case 2:
+                                    {
+                                        Console.Write("Введіть Id: ");
+                                        int id = int.Parse(Console.ReadLine());
+                                        User u = context.Users.SingleOrDefault(x => x.Id == id);
+                                        Console.WriteLine("Що будемо змінювати?");
+                                        Console.WriteLine("1 - ПІБ");
+                                        Console.WriteLine("2 - стать");
+                                        Console.WriteLine("3 - вік");
+                                        Console.WriteLine("4 - вагу");
+                                        Console.WriteLine("5 - розмір ноги");
+                                        Console.WriteLine("6 - телефон");
+                                        Console.Write("-> ");
+                                        int ch = int.Parse(Console.ReadLine());
+                                        switch (ch)
+                                        {
+                                            case 1:
+                                                {
+                                                    Console.Write("Введіть нове ПІБ ");
+                                                    u.Name = Console.ReadLine();
+                                                    break;
+                                                }
+                                            case 2:
+                                                {
+                                                    Console.Write("Введіть стать ");
+                                                    u.Sex = byte.Parse(Console.ReadLine());
+                                                    break;
+                                                }
+                                            case 3:
+                                                {
+                                                    Console.Write("Введіть вік ");
+                                                    u.Age = int.Parse(Console.ReadLine());
+                                                    break;
+                                                }
+                                            case 4:
+                                                {
+                                                    Console.Write("Введіть вагу ");
+                                                    u.Weight = int.Parse(Console.ReadLine());
+                                                    break;
+                                                }
+                                            case 5:
+                                                {
+                                                    Console.Write("Введіть розмір ноги ");
+                                                    u.Footsize = int.Parse(Console.ReadLine());
+                                                    break;
+                                                }
+                                            case 6:
+                                                {
+                                                    break;
+                                                }
+                                        }
+                                        Console.WriteLine("Успішно змінено!");
+                                        context.SaveChanges();
+                                        break;
+                                    }
+                            }
+                            break;
 
 
 
                             
-                            break;
-                        }
-                    case 4:
-                        {
-                            Console.Write("Введіть Id: ");
-                            int id = int.Parse(Console.ReadLine());
-                            Department d = context.Departments.SingleOrDefault(x => x.Id == id);
-                            Console.Write("Введіть нову назву: ");
-                            d.Name = Console.ReadLine();
-                            Console.WriteLine("Успішно змінено!");
-                            context.SaveChanges();
-                            break;
                         }
 
                 }
