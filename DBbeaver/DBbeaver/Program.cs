@@ -126,8 +126,19 @@ namespace Hospital
                                         Console.Write("Введіть Id: ");
                                         int id = int.Parse(Console.ReadLine());
                                         Department d = context.Departments.SingleOrDefault(x => x.Id == id);
-                                        context.Departments.Remove(d);
-                                        Console.WriteLine("Успішно видалено!");
+                                        if (d != null)
+                                        {
+                                            context.Departments.Remove(d);
+                                            Console.WriteLine("Успішно видалено!");
+                                        }
+                                        else
+                                        {
+                                            Console.WriteLine();
+                                            Console.ForegroundColor = ConsoleColor.Green;
+                                            Console.WriteLine($"Не знайдено відділення з таким Id");
+                                            Console.ResetColor();
+                                        }
+                                        
                                         context.SaveChanges();
                                         break;
                                     }
@@ -136,9 +147,19 @@ namespace Hospital
                                         Console.Write("Введіть Id: ");
                                         int id = int.Parse(Console.ReadLine());
                                         User u = context.Users.SingleOrDefault(x => x.Id == id);
-                                        context.Users.Remove(u);
-                                        Console.WriteLine("Успішно видалено!");
-                                        context.SaveChanges();
+                                        if (u != null)
+                                        {
+                                            context.Users.Remove(u);
+                                            Console.WriteLine("Успішно видалено!");
+                                            context.SaveChanges();
+                                        }
+                                        else
+                                        {
+                                            Console.WriteLine();
+                                            Console.ForegroundColor = ConsoleColor.Green;
+                                            Console.WriteLine($"Не знайдено користувача з таким Id");
+                                            Console.ResetColor();
+                                        }
                                         break;
                                     }
                             }
@@ -158,10 +179,20 @@ namespace Hospital
                                         Console.Write("Введіть Id: ");
                                         int id = int.Parse(Console.ReadLine());
                                         Department d = context.Departments.SingleOrDefault(x => x.Id == id);
-                                        Console.Write("Введіть нову назву: ");
-                                        d.Name = Console.ReadLine();
-                                        Console.WriteLine("Успішно змінено!");
-                                        context.SaveChanges();
+                                        if (d != null)
+                                        {
+                                            Console.Write("Введіть нову назву: ");
+                                            d.Name = Console.ReadLine();
+                                            Console.WriteLine("Успішно змінено!");
+                                            context.SaveChanges();
+                                        }
+                                        else
+                                        {
+                                            Console.WriteLine();
+                                            Console.ForegroundColor = ConsoleColor.Green;
+                                            Console.WriteLine($"Не знайдено відділення з таким Id");
+                                            Console.ResetColor();
+                                        }
                                         break;
                                     }
                                 case 2:
@@ -169,54 +200,64 @@ namespace Hospital
                                         Console.Write("Введіть Id: ");
                                         int id = int.Parse(Console.ReadLine());
                                         User u = context.Users.SingleOrDefault(x => x.Id == id);
-                                        Console.WriteLine("Що будемо змінювати?");
-                                        Console.WriteLine("1 - ПІБ");
-                                        Console.WriteLine("2 - стать");
-                                        Console.WriteLine("3 - вік");
-                                        Console.WriteLine("4 - вагу");
-                                        Console.WriteLine("5 - розмір ноги");
-                                        Console.WriteLine("6 - телефон");
-                                        Console.Write("-> ");
-                                        int ch = int.Parse(Console.ReadLine());
-                                        switch (ch)
+                                        if (u != null)
                                         {
-                                            case 1:
-                                                {
-                                                    Console.Write("Введіть нове ПІБ ");
-                                                    u.Name = Console.ReadLine();
-                                                    break;
-                                                }
-                                            case 2:
-                                                {
-                                                    Console.Write("Введіть стать ");
-                                                    u.Sex = byte.Parse(Console.ReadLine());
-                                                    break;
-                                                }
-                                            case 3:
-                                                {
-                                                    Console.Write("Введіть вік ");
-                                                    u.Age = int.Parse(Console.ReadLine());
-                                                    break;
-                                                }
-                                            case 4:
-                                                {
-                                                    Console.Write("Введіть вагу ");
-                                                    u.Weight = int.Parse(Console.ReadLine());
-                                                    break;
-                                                }
-                                            case 5:
-                                                {
-                                                    Console.Write("Введіть розмір ноги ");
-                                                    u.Footsize = int.Parse(Console.ReadLine());
-                                                    break;
-                                                }
-                                            case 6:
-                                                {
-                                                    break;
-                                                }
+                                            Console.WriteLine("Що будемо змінювати?");
+                                            Console.WriteLine("1 - ПІБ");
+                                            Console.WriteLine("2 - стать");
+                                            Console.WriteLine("3 - вік");
+                                            Console.WriteLine("4 - вагу");
+                                            Console.WriteLine("5 - розмір ноги");
+                                            Console.WriteLine("6 - телефон");
+                                            Console.Write("-> ");
+                                            int ch = int.Parse(Console.ReadLine());
+                                            switch (ch)
+                                            {
+                                                case 1:
+                                                    {
+                                                        Console.Write("Введіть нове ПІБ ");
+                                                        u.Name = Console.ReadLine();
+                                                        break;
+                                                    }
+                                                case 2:
+                                                    {
+                                                        Console.Write("Введіть стать ");
+                                                        u.Sex = byte.Parse(Console.ReadLine());
+                                                        break;
+                                                    }
+                                                case 3:
+                                                    {
+                                                        Console.Write("Введіть вік ");
+                                                        u.Age = int.Parse(Console.ReadLine());
+                                                        break;
+                                                    }
+                                                case 4:
+                                                    {
+                                                        Console.Write("Введіть вагу ");
+                                                        u.Weight = int.Parse(Console.ReadLine());
+                                                        break;
+                                                    }
+                                                case 5:
+                                                    {
+                                                        Console.Write("Введіть розмір ноги ");
+                                                        u.Footsize = int.Parse(Console.ReadLine());
+                                                        break;
+                                                    }
+                                                case 6:
+                                                    {
+                                                        break;
+                                                    }
+                                            }
+                                            Console.WriteLine("Успішно змінено!");
+                                            context.SaveChanges();
                                         }
-                                        Console.WriteLine("Успішно змінено!");
-                                        context.SaveChanges();
+                                        else
+                                        {
+                                            Console.WriteLine();
+                                            Console.ForegroundColor = ConsoleColor.Green;
+                                            Console.WriteLine($"Не знайдено користувача з таким Id");
+                                            Console.ResetColor();
+                                        }
                                         break;
                                     }
                             }
