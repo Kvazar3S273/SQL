@@ -13,7 +13,6 @@ namespace Hospital
                         
             MyContext context = new MyContext();
 
-
             int action = 0;
             do
             {
@@ -24,6 +23,7 @@ namespace Hospital
                 Console.WriteLine("2. Додати");
                 Console.WriteLine("3. Видалити");
                 Console.WriteLine("4. Редагувати");
+                Console.WriteLine("5. Пошук");
                 Console.Write("--> ");
                 Console.ResetColor();
                 action = int.Parse(Console.ReadLine());
@@ -221,13 +221,31 @@ namespace Hospital
                                     }
                             }
                             break;
-
-
-
-                            
                         }
-
+                    case 5:
+                        {
+                            Console.WriteLine();
+                            Console.WriteLine("1 - по відділеннях");
+                            Console.WriteLine("2 - по користувачах");
+                            Console.Write("-> ");
+                            int choice = int.Parse(Console.ReadLine());
+                            switch (choice)
+                            {
+                                case 1:
+                                    {
+                                        context.DepartmentSearch();
+                                        break;
+                                    }
+                                case 2:
+                                    {
+                                        context.UserSearch();
+                                        break;
+                                    }
+                            }
+                            break;
+                        }
                 }
+
             } while (action != 0);
 
         }

@@ -13,5 +13,13 @@ namespace Hospital
         public int Id { get; set; }
         [Required, StringLength(255)]
         public string Name { get; set; }
+
+        public override string ToString()
+        {
+            string info;
+            info = $"{ Id,-3} {Name,-12}";
+            return info;
+        }
     }
+
 }

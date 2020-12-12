@@ -34,19 +34,18 @@ namespace Hospital
 
             if (Sex == 0)
             {
-                info = $" {Id,-3} {Name,-15}    жін   {Age,-3}     {Weight,-3}     {Footsize,-3}     {Phone,-10}";
-
+                info = $" {Id,-3} {Name,-15}    жін     {Age,-3}   {Weight,-3}     {Footsize,-3}     {Phone,-10}";
             }
             else if (Sex == 1)
             {
-                info = $" {Id,-3} {Name,-15}    чол   {Age,-3}     {Weight,-3}     {Footsize,-3}     {Phone,-10}";
+                info = $" {Id,-3} {Name,-15}    чол     {Age,-3}   {Weight,-3}     {Footsize,-3}     {Phone,-10}";
             }
             else
             {
-                info = $" {Id,-3} {Name,-15}    ---   {Age,-3}     {Weight,-3}     {Footsize,-3}     {Phone,-10}";
+                info = $" {Id,-3} {Name,-15}    ---     {Age,-3}   {Weight,-3}     {Footsize,-3}     {Phone,-10}";
             }
             return info;
-
         }
     }
+    
 }
