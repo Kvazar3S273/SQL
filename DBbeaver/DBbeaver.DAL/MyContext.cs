@@ -4,7 +4,7 @@ using System.Linq;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Hospital
+namespace DBbeaver.DAL
 {
     public class MyContext : DbContext
     {

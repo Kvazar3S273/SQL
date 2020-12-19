@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
-namespace Hospital
+namespace DBbeaver.DAL
 {
     [Table("tblUsers")]
     public class User

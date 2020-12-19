@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30523.141
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hospital", "DBbeaver\Hospital.csproj", "{DE46EA60-71D6-4B26-8809-B13FECEA62EC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hospital", "DBbeaver\Hospital.csproj", "{DE46EA60-71D6-4B26-8809-B13FECEA62EC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DBbeaver.DAL", "DBbeaver.DAL\DBbeaver.DAL.csproj", "{90007B87-6789-4D9D-A077-1DD2920AD9F0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DBbeaver.WindowsForm", "DBbeaver.WindowsForm\DBbeaver.WindowsForm.csproj", "{418A9A51-C3C7-4F53-AE40-8E8D91751B26}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{DE46EA60-71D6-4B26-8809-B13FECEA62EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DE46EA60-71D6-4B26-8809-B13FECEA62EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DE46EA60-71D6-4B26-8809-B13FECEA62EC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{90007B87-6789-4D9D-A077-1DD2920AD9F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{90007B87-6789-4D9D-A077-1DD2920AD9F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{90007B87-6789-4D9D-A077-1DD2920AD9F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{90007B87-6789-4D9D-A077-1DD2920AD9F0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{418A9A51-C3C7-4F53-AE40-8E8D91751B26}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{418A9A51-C3C7-4F53-AE40-8E8D91751B26}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{418A9A51-C3C7-4F53-AE40-8E8D91751B26}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{418A9A51-C3C7-4F53-AE40-8E8D91751B26}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

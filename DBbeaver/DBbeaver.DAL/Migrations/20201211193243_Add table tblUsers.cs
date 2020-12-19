@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
-namespace Hospital.Migrations
+namespace DBbeaver.DAL.Migrations
 {
     public partial class AddtabletblUsers : Migration
     {
