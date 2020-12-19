@@ -23,7 +23,12 @@ namespace DBbeaver.WindowsForm
             MyContext context = new MyContext();
             foreach (var item in context.Departments)
             {
-                string str = $" {item.Id} {item.Name}";
+                object[] row =
+                {
+                    $" {item.Id}",
+                    $" {item.Name}"
+            };
+                dataGridView1.Rows.Add(row);
             }
         }
     }

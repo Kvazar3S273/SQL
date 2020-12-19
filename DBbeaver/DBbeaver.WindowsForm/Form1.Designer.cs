@@ -38,11 +38,14 @@
             // 
             this.ColId.HeaderText = "Id";
             this.ColId.Name = "ColId";
+            this.ColId.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             // 
             // ColName
             // 
+            this.ColName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.ColName.HeaderText = "Ім\'я";
             this.ColName.Name = "ColName";
+            this.ColName.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             // 
             // Form1
             // 
@@ -71,10 +74,9 @@
         }
 
         #endregion
-
+        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColId;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColName;
-        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }
 
