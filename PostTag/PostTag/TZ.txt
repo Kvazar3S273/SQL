@@ -1,0 +1,2 @@
+﻿Побудувати БД на осові наступного прикладу
+http://prideparrot.com/Source-Codes/Images/justblog_db_dia.jpg
